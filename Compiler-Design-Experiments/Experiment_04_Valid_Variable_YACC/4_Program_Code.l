@@ -1,0 +1,15 @@
+%{
+#include <stdio.h>
+#include "y.tab.h"
+%}
+
+%%
+[a-zA-Z] { return LET; }
+[0-9]    { return DIG; }
+\n      { return 0; }
+.        { return yytext[0]; }
+%%
+
+int yywrap(void) {
+    return 1;
+}
